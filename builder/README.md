@@ -492,3 +492,18 @@ The text is TAY Wingman in the strapline's cream (`INK`). The
 layout is pure and tested in `src/title/template.test.ts`; drawing is
 `src/title/draw.ts`, shared by the preview and the export.
 
+
+## The artwork
+
+The listing template's artwork has one source of truth: the green-screen
+masters in `assets/listing-src/`. `public/listing/` holds what `npm run art`
+makes of them, so edit the masters, never the output. The photographed
+headshots' backdrops are keyed out by `npm run matte`, per shot, from the
+settings in `src/listing/photos.json`.
+
+## Not built yet
+
+- **A second listing template.** The geometry lives in one file per template
+  (`src/listing/template.ts`) and the art in one folder, so a second one is
+  those two plus an entry in the manifest — but nothing is parameterised for it
+  yet, and it should not be until there are two.
