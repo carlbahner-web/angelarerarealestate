@@ -8,9 +8,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Angela Rera Real Estate">
 <meta property="og:description" content="Hire a realtor, close with a friend. Lancaster and York County, Pennsylvania.">
-<meta property="og:image" content="og-image.jpg">
+<meta property="og:image" content="https://www.angelarerarealestate.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <title>Angela Rera Real Estate</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..600,0..100,0..1&family=Karla:ital,wght@0,300..700;1,400..600&display=swap">
@@ -19,7 +20,7 @@
 <body>
 <style>
 /* ---------------------------------------------------------------
-   Angela Rera - home page mockup v1
+   Angela Rera - home page
    Palette is fixed on purpose. This is a brand page, so it must
    look the same for every visitor regardless of their OS theme.
    navy   #0B1C40  Maastricht Blue   ground for the dark bands, all body type
@@ -321,6 +322,27 @@ img,svg{max-width:100%}
 .closing__direct a{font-weight:600;color:var(--ink);text-decoration-color:#0B1C4045;text-underline-offset:3px}
 .closing__direct a:hover{color:var(--rose)}
 
+/* contact form, on the blush ground */
+.ask__form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem;margin-top:2.25rem;max-width:34rem}
+.field{display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.field--wide{grid-column:1 / -1}
+.field label{font-size:var(--s1);font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--rose)}
+.field label span{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--ink-2)}
+.field input,.field textarea{
+  font-family:var(--f-body);font-size:var(--s3);color:var(--ink);
+  background:var(--shell);border:1.5px solid #0B1C4038;border-radius:2px;
+  padding:.75rem .85rem;width:100%;
+}
+.field textarea{resize:vertical;line-height:1.55}
+.field textarea::placeholder{color:var(--ink-2);opacity:.75}
+.field input:hover,.field textarea:hover{border-color:var(--ink-2)}
+.ask__form .btn{grid-column:1 / -1;justify-self:start}
+.hp{position:absolute;left:-9999px}
+.ask__done{margin-top:2.25rem}
+.ask__done h3{font-size:var(--s5)}
+.ask__done p{margin-top:.8rem;max-width:34rem;color:var(--ink-2)}
+.ask__done a{color:var(--ink);font-weight:600}
+
 /* footer --------------------------------------------------------- */
 .foot{background:var(--navy);color:var(--paper-2);padding:clamp(3rem,calc(var(--vw) * .06000),4.5rem) 0 2.5rem;font-size:var(--s2)}
 .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
@@ -368,7 +390,10 @@ img,svg{max-width:100%}
   .fact{border-left:0;border-top:1px solid var(--gold-dim);padding-left:0}
   .fact:nth-child(-n+2){border-top:0}
   .hill__bloom{opacity:.22;right:-24%}
-  .nav > a{display:none}
+  /* links drop under the phone number instead of disappearing */
+  .nav{flex-wrap:wrap;justify-content:flex-end;column-gap:1.1rem;row-gap:.3rem}
+  .nav__contact{flex-basis:100%;order:-1}
+  .nav > a{font-size:var(--s1)}
   /* the radial scrim cannot cover a tall stacked hero, so go vertical */
   .hero::before{background:linear-gradient(180deg,#0B1C40e8 0%,#0B1C40c9 52%,#0B1C40a3 100%)}
   .paper{opacity:.22}
@@ -382,6 +407,14 @@ img,svg{max-width:100%}
   .fact dd{max-width:none}
   .story__body{font-size:var(--s3)}
   .wordmark small{display:none}
+  .ask__form{grid-template-columns:1fr}
+  .nav .mail{display:none}
+  /* narrow phones: name and number on top, page links on their own row */
+  .masthead__in{flex-wrap:wrap;row-gap:0;column-gap:1.1rem;padding-bottom:.6rem}
+  .masthead__in::after{content:"";flex-basis:100%;order:1}
+  .nav{display:contents}
+  .nav__contact{flex-basis:auto;order:0}
+  .nav > a{order:2;margin-top:.45rem}
 }
 </style>
 
@@ -542,7 +575,7 @@ img,svg{max-width:100%}
 
       <blockquote class="unseen__note">
         I once sold a house for an elderly couple who had already moved out of state, and could only reach them by phone. I found the landscapers, the junk haulers and the cleaners, and I met every one of them at the house myself. It sold and settled in a week.
-      </div>
+      </blockquote>
     </div>
   </section>
 
@@ -605,9 +638,33 @@ img,svg{max-width:100%}
           <h2>Come say hi.</h2>
           <p>Tell me where you are in this. If you are six months out, that is fine. That is honestly the best time to call, because we have room to do it right. Either way I will tell you what I really think.</p>
         </div>
-        <div class="closing__cta">
-          <a class="btn btn--solid" href="#contact">Book a call with Angela</a>
-          <a class="btn btn--ghost" href="tel:17173324407">Or just call me</a>
+        <form class="ask__form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field field--wide">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="field field--wide">
+            <label for="f-msg">Anything you want me to know? <span>optional</span></label>
+            <textarea id="f-msg" name="message" rows="3" placeholder="For example: We are thinking about selling our house this spring."></textarea>
+          </div>
+
+          <button class="btn btn--solid" type="submit">Send it to Angela</button>
+        </form>
+
+        <div class="ask__done" id="askDone" hidden>
+          <h3>Got it.</h3>
+          <p id="doneMsg">Thank you. I will get back to you myself, usually the same day. If it is urgent, call or text me at <a href="tel:17173324407">717.332.4407</a>.</p>
         </div>
         <div class="closing__direct">
           <span>Cell <a href="tel:17173324407">717.332.4407</a></span>
@@ -678,6 +735,33 @@ document.documentElement.classList.add("js");
     });
   }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
   document.querySelectorAll(".rise").forEach(function (el) { io.observe(el); });
+})();
+(function () {
+  var form = document.getElementById('contactForm');
+  var done = document.getElementById('askDone');
+  var doneMsg = document.getElementById('doneMsg');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    function reveal(failed) {
+      if (failed) {
+        doneMsg.innerHTML = 'Sorry, that did not go through. Please call or text me at ' +
+          '<a href="tel:17173324407">717.332.4407</a>, or email ' +
+          '<a href="mailto:angela.rera@cbhomes.com">angela.rera@cbhomes.com</a>.';
+        done.querySelector('h3').textContent = 'Hmm.';
+      }
+      form.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(function (r) { reveal(!r.ok); })
+      .catch(function () { reveal(true); });
+  });
 })();
 </script>
 
