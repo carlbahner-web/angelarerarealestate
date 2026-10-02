@@ -7,9 +7,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Five Questions Before You List">
 <meta property="og:description" content="The questions Angela asks sellers on a first call. No signup.">
-<meta property="og:image" content="/og-image.jpg">
+<meta property="og:image" content="https://www.angelarerarealestate.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <title>Five Questions Before You List</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..600,0..100,0..1&family=Karla:ital,wght@0,300..700;1,400..600&display=swap">
@@ -18,7 +19,7 @@
 <style>
 
 /* ---------------------------------------------------------------
-   Angela Rera - home page mockup v1
+   Angela Rera - sellers page
    Palette is fixed on purpose. This is a brand page, so it must
    look the same for every visitor regardless of their OS theme.
    navy   #0B1C40  Maastricht Blue   ground for the dark bands, all body type
@@ -653,8 +654,13 @@ document.documentElement.classList.add('js');
     if (!form.reportValidity()) return;
     var data = new URLSearchParams(new FormData(form)).toString();
 
-    function reveal(previewOnly) {
-      if (previewOnly) {
+    function reveal(previewOnly, failed) {
+      if (failed) {
+        doneMsg.innerHTML = 'Sorry, that did not go through. Please call or text me at ' +
+          '<a href="tel:17173324407">717.332.4407</a>, or email ' +
+          '<a href="mailto:angela.rera@cbhomes.com">angela.rera@cbhomes.com</a>.';
+        done.querySelector('h3').textContent = 'Hmm.';
+      } else if (previewOnly) {
         doneMsg.innerHTML = 'This is a preview, so nothing was actually sent. On the published site this ' +
           'is delivered straight to Angela along with the five answers.';
       }
@@ -669,8 +675,8 @@ document.documentElement.classList.add('js');
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: data
-    }).then(function (r) { reveal(!r.ok); })
-      .catch(function () { reveal(true); });
+    }).then(function (r) { reveal(false, !r.ok); })
+      .catch(function () { reveal(false, true); });
   });
 
   show();
