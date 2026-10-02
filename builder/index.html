@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Unlisted: nothing on the site links here, and search engines are asked
+         to stay away. The title and the preview are for the people Angela
+         shares the link with. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Angela's Post Builder</title>
+    <meta name="description" content="Make a listing post or a reel title in Angela Rera's style, one step at a time." />
+
+    <!-- Link previews (texts, iMessage, Facebook, Slack...). The image URL has
+         to be absolute - previews are fetched by other companies' servers,
+         which cannot resolve a relative path - so it names the live site. The
+         card itself is made by `npm run og` from her artwork. If the site
+         moves to its own domain, these three URLs move with it. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Angela Rera" />
+    <meta property="og:title" content="Angela's Post Builder" />
+    <meta property="og:description" content="Make a listing post or a reel title in Angela Rera's style, one step at a time." />
+    <meta property="og:url" content="https://carlbahner-web.github.io/angelarerarealestate/builder/" />
+    <meta property="og:image" content="https://carlbahner-web.github.io/angelarerarealestate/builder/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Angela's Post Builder: Angela Rera in her floral arch on navy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Angela's Post Builder" />
+    <meta name="twitter:image" content="https://carlbahner-web.github.io/angelarerarealestate/builder/preview.jpg" />
+
+    <link rel="icon" type="image/png" href="%BASE_URL%icon.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/home/main.tsx"></script>
+  </body>
+</html>

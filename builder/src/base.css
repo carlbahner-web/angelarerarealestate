@@ -1,0 +1,63 @@
+/* The page's own chrome: the webfont, the palette and the base type, shared by
+   the home page and both tools. Each tool's look lives in its own stylesheet;
+   this is only what they have in common. */
+@font-face {
+  font-family: "TAYWingman";
+  src: url("/fonts/TAYWingman.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --cream: #fcf7e8;
+  --charcoal: #2c2c2a;
+  --teal: #3a6168;
+  --line: #dcd5c2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #eee8d8;
+  color: var(--charcoal);
+  font-family: "TAYWingman", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.boot-msg { padding: 40px; font-size: 15px; }
+
+/* The plain pill button: "Done" on the press-and-hold sheet. */
+.ghost {
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 12px;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.ghost:hover { background: var(--cream); }
+
+/* Hold-to-save, shown only where a programmatic download is unreliable. */
+.held {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px;
+  background: rgba(44, 44, 42, 0.92);
+  color: var(--cream);
+  text-align: center;
+}
+.held img {
+  max-width: 100%;
+  max-height: 64vh;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+.held p { margin: 0; font-size: 13px; max-width: 300px; line-height: 1.6; }

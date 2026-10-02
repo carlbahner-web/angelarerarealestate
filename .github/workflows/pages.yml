@@ -1,0 +1,85 @@
+# Publish the site, with Angela's Post Builder under /builder/.
+#
+# Everything at the top of this repo is hand-written HTML and goes up as it is.
+# The builder is the one part with a build step: it lives in builder/ as its
+# own small project, is tested and built here, and its output lands at
+# /builder/ beside the rest. Nothing on the site links to it - she has the
+# link - and its pages ask search engines to stay away.
+#
+# Turning Pages on is an owner action, once, by hand: Settings -> Pages ->
+# Source: "GitHub Actions". A workflow's own token is refused if it tries.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never two deploys at once, but do not cancel one in flight - a half-published
+# site is worse than a slightly stale one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: builder
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # 22, not 20: the unit tests run .ts files directly under
+          # --experimental-strip-types, which does not exist before 22.6.
+          node-version: 22
+          cache: npm
+          cache-dependency-path: builder/package-lock.json
+      - run: npm ci
+
+      # The fast suite and the typecheck, so a broken builder never reaches
+      # the site. The browser tests want a real Chromium and are slow; run
+      # them locally with `npm run test:browser` when the tools change.
+      - run: npm test
+      - run: npm run typecheck
+
+      # Pages serves this repo from /<repo name>/, and the builder sits under
+      # /builder/ inside that. Taken from the repo name rather than typed, so a
+      # rename does not silently produce a page of 404s.
+      - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/builder/
+
+      # The site as it is, minus the builder's source and the repo's own
+      # dotfiles, with the built builder dropped in at /builder/.
+      - name: Assemble the site
+        working-directory: .
+        run: |
+          shopt -s extglob
+          mkdir _site
+          # A plain glob skips dotfiles, so .git and .github stay behind.
+          cp -r !(builder|_site) _site/
+          cp -r builder/dist _site/builder
+          # Jekyll would otherwise run over the upload and drop anything whose
+          # name starts with an underscore.
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
