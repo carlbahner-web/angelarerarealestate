@@ -1,0 +1,22 @@
+# Netlify publishes this repo as it is, with no build step - which is right for
+# the hand-written pages and wrong for builder/, the one part that has to be
+# built. Angela's Post Builder is built and hosted by GitHub Pages instead
+# (.github/workflows/pages.yml), so on this domain /builder/ forwards there
+# rather than serving the unbuilt source, which would be a blank page.
+#
+# No [build] section on purpose: the site's build settings stay whatever they
+# are in the Netlify UI. Only these redirects come from this file.
+#
+# force = true because builder/index.html exists in what Netlify publishes,
+# and without it the file would be served instead of the redirect.
+[[redirects]]
+  from = "/builder"
+  to = "https://carlbahner-web.github.io/angelarerarealestate/builder/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/builder/*"
+  to = "https://carlbahner-web.github.io/angelarerarealestate/builder/:splat"
+  status = 301
+  force = true

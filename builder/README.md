@@ -33,6 +33,11 @@ GitHub Pages on every push to `main`: the hand-written pages as they are, and
 this builder tested, built and dropped in at `/builder/`. Pages has to be turned
 on once, by hand: **Settings → Pages → Source: GitHub Actions**.
 
+Her main site is published separately, by Netlify, straight from this repo with
+no build step. That would serve the builder's unbuilt source at
+`www.angelarerarealestate.com/builder/` as a blank page, so `netlify.toml` at
+the top of the repo redirects `/builder/` there to the GitHub Pages copy.
+
 The link preview's URLs in `index.html` are absolute, because previews are
 fetched by other companies' servers. They name
 `https://carlbahner-web.github.io/angelarerarealestate/builder/`; if the site
