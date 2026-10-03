@@ -133,21 +133,19 @@ img,svg{max-width:100%}
   text-decoration:none;line-height:1.1;margin-right:auto;
   font-variation-settings:"SOFT" 40,"WONK" 1;
 }
-.wordmark small{
-  display:block;font-family:var(--f-body);font-size:.6875rem;font-weight:600;
-  letter-spacing:.19em;text-transform:uppercase;color:var(--ink-2);margin-top:.2rem;
-}
+/* Pennsylvania advertising rules: the broker's name runs as large as hers */
+.wordmark__broker{display:block;color:var(--ink-2);margin-top:.15rem}
 .nav{display:flex;align-items:center;gap:1.9rem}
 .nav a{
   font-size:var(--s2);font-weight:500;text-decoration:none;color:var(--ink-2);
   padding-bottom:2px;border-bottom:1.5px solid transparent;transition:color .15s,border-color .15s;
 }
 .nav a:hover{color:var(--rose);border-color:var(--rose)}
-/* phone over email at the right end, echoing the two-line wordmark opposite */
+/* her cell over the office line, same size, echoing the two-line wordmark opposite */
 .nav__contact{display:flex;flex-direction:column;align-items:flex-end;gap:.1rem;line-height:1.3}
 .nav__contact a{border-bottom:1.5px solid transparent;text-decoration:none}
 .nav .tel{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
-.nav .mail{font-size:.8125rem;font-weight:500;color:var(--ink-2)}
+.nav .tel span{font-weight:400;color:var(--ink-2)}
 .nav__contact a:hover{color:var(--rose);border-color:var(--rose)}
 
 
@@ -173,6 +171,8 @@ img,svg{max-width:100%}
 }
 .foot__legal a{text-decoration-color:var(--gold-dim);text-underline-offset:3px}
 .foot__legal a:hover{color:var(--gold)}
+.foot__legal .eho{display:inline-flex;align-items:center;gap:.4rem}
+.foot__mark span{display:block;color:var(--paper-2)}
 .foot__fineprint{
   margin-top:1.5rem;font-size:.75rem;line-height:1.65;color:#8d8296;max-width:64rem;
 }
@@ -216,7 +216,19 @@ img,svg{max-width:100%}
   .fact:first-child{border-top:0}
   .fact dd{max-width:none}
   .story__body{font-size:var(--s3)}
-  .wordmark small{display:none}
+  .wordmark{font-size:var(--s3)}
+  .nav .tel{font-size:var(--s1)}
+}
+/* small phones: name and broker stay equal, just smaller, so the numbers still fit beside them */
+@media (max-width:400px){
+  .wordmark{font-size:var(--s2)}
+  .masthead__in{column-gap:.75rem}
+}
+/* the narrowest phones: both numbers on one row under the name */
+@media (max-width:350px){
+  .masthead__in{flex-wrap:wrap;row-gap:.35rem}
+  .nav{flex-basis:100%}
+  .nav__contact{flex-direction:row;gap:1rem}
 }
 /* the UA rule for [hidden] is display:none, but .btn sets display:inline-flex,
    and an author rule beats the UA sheet. Without this the Back button renders
@@ -348,11 +360,11 @@ img,svg{max-width:100%}
 </style>
 <header class="masthead">
   <div class="shell masthead__in">
-    <a class="wordmark" href="/">Angela Rera<small>Lancaster + York County</small></a>
+    <a class="wordmark" href="/">Angela Rera<span class="wordmark__broker">Coldwell Banker Realty</span></a>
     <nav class="nav">
       <span class="nav__contact">
-        <a class="tel" href="tel:17173324407">717.332.4407</a>
-        <a class="mail" href="mailto:angela.rera@cbhomes.com">angela.rera@cbhomes.com</a>
+        <a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a>
+        <a class="tel" href="tel:17177358400"><span>Office</span> 717.735.8400</a>
       </span>
     </nav>
   </div>
@@ -510,8 +522,8 @@ img,svg{max-width:100%}
   <div class="shell">
     <div class="foot__grid">
       <div>
-        <p class="foot__mark">Angela Rera</p>
-        <p style="margin-top:.9rem;max-width:22rem">Sales Associate, Coldwell Banker Realty. Serving Lancaster County and York County, Pennsylvania.</p>
+        <p class="foot__mark">Angela Rera<span>Coldwell Banker Realty</span></p>
+        <p style="margin-top:.9rem;max-width:22rem">Sales Associate. Serving Lancaster County and York County, Pennsylvania.</p>
       </div>
       <div>
         <h4>Pages</h4>
@@ -536,14 +548,14 @@ img,svg{max-width:100%}
     <div class="foot__legal">
       <span>License RS318810 PA</span>
       <span><a href="https://coldwellbankerhomes.com/">Coldwell Banker</a> - Lancaster</span>
-      <span>&copy; 2026 Coldwell Banker Real Estate LLC</span>
-      <span><a href="https://angelarerarealestate.com/terms-of-use">Terms of Use</a></span>
-      <span><a href="https://angelarerarealestate.com/privacy-policy">Privacy Policy</a></span>
-      <span><a href="https://angelarerarealestate.com/accessibility-statement/">Accessibility Statement</a></span>
-      <span><a href="https://angelarerarealestate.com/fair-housing-notice/">Fair Housing Notice</a></span>
+      <span><a href="/terms-of-use/">Terms of Use</a></span>
+      <span><a href="/privacy-policy/">Privacy Policy</a></span>
+      <span><a href="/accessibility-statement/">Accessibility Statement</a></span>
+      <span><a href="/fair-housing-notice/">Fair Housing Notice</a></span>
+      <span><a class="eho" href="https://www.hud.gov/sites/documents/928.1.pdf"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2.5 1.5 10v2h2v9.5h17V12h2v-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 12.5h8M8 16h8" stroke="currentColor" stroke-width="1.8"/></svg>Equal Housing Opportunity</a></span>
     </div>
 
-    <p class="foot__fineprint">&copy; Coldwell Banker 2023 &ndash; 2026. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System is comprised of company owned offices which are owned by a subsidiary of Anywhere Advisors LLC and franchised offices which are independently owned and operated. The Coldwell Banker System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
+    <p class="foot__fineprint">&copy;2026 Coldwell Banker. All Rights Reserved. Coldwell Banker and the Coldwell Banker logo are trademarks of Coldwell Banker Real Estate LLC. The Coldwell Banker&reg; System is comprised of company owned offices which are owned by a subsidiary of Compass International Holdings and franchised offices which are independently owned and operated. The Coldwell Banker System fully supports the principles of the Fair Housing Act and the Equal Opportunity Act.</p>
   </div>
 </footer>
 
