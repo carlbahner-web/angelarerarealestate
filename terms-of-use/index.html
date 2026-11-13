@@ -93,6 +93,7 @@ img,svg{max-width:100%}
 
 /* buttons -------------------------------------------------------- */
 .btn{
+  line-height:normal;
   display:inline-flex;align-items:center;gap:.6rem;
   font-family:var(--f-body);font-size:var(--s2);font-weight:600;
   letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
@@ -134,13 +135,16 @@ img,svg{max-width:100%}
 .nav__contact a{border-bottom:1.5px solid transparent;text-decoration:none}
 .nav .tel{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
 .nav .tel span{font-weight:400;color:var(--ink-2)}
+/* a text message link beside her cell, so people know texting is welcome */
+.nav__row{display:flex;gap:.7rem;align-items:baseline}
+.nav .sms{text-decoration:underline;text-underline-offset:3px}
 .nav__contact a:hover{color:var(--rose);border-color:var(--rose)}
 
 /* footer --------------------------------------------------------- */
 .foot{background:var(--navy);color:var(--paper-2);padding:clamp(3rem,calc(var(--vw) * .06000),4.5rem) 0 2.5rem;font-size:var(--s2)}
 .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
 .foot h4{
-  font-family:var(--f-body);font-size:.6875rem;font-weight:700;letter-spacing:.19em;
+  font-family:var(--f-body);font-size:var(--s1);font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gold);margin:0 0 1rem;
 }
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
@@ -162,10 +166,10 @@ img,svg{max-width:100%}
 
 /* legal pages ------------------------------------------------------ */
 .legal-intro{padding:clamp(3rem,calc(var(--vw) * .07),5rem) 0 clamp(2.5rem,calc(var(--vw) * .05),3.5rem)}
-.legal-intro h1{font-size:clamp(2.2rem,calc(var(--vw) * .06),3.6rem);margin-top:1rem;color:var(--paper)}
+.legal-intro h1{font-size:clamp(2rem,calc(var(--vw) * .05),var(--s7));margin-top:1rem;color:var(--paper)}
 .legal-intro .updated{margin-top:1rem;font-size:var(--s2);color:var(--paper-2)}
 .legal-intro .short{
-  margin-top:1.8rem;max-width:38rem;font-size:var(--s4);line-height:1.5;color:var(--paper);
+  margin-top:1.8rem;max-width:38rem;font-size:var(--s4);line-height:1.65;color:var(--paper);
   border-left:2px solid var(--gold);padding-left:1.2rem;
 }
 .legal{padding:clamp(2.5rem,calc(var(--vw) * .06),4.5rem) 0 clamp(3.5rem,calc(var(--vw) * .08),6rem)}
@@ -219,7 +223,7 @@ img,svg{max-width:100%}
       <a href="/for-sellers/">For Sellers</a>
       <a href="/#reviews">Reviews</a>
       <span class="nav__contact">
-        <a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a>
+        <span class="nav__row"><a class="tel sms" href="sms:+17173324407">Text</a><a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a></span>
         <a class="tel" href="tel:17177358400"><span>Office</span> 717.735.8400</a>
       </span>
     </nav>

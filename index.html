@@ -106,6 +106,7 @@ img,svg{max-width:100%}
 
 /* buttons -------------------------------------------------------- */
 .btn{
+  line-height:normal;
   display:inline-flex;align-items:center;gap:.6rem;
   font-family:var(--f-body);font-size:var(--s2);font-weight:600;
   letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
@@ -147,6 +148,9 @@ img,svg{max-width:100%}
 .nav__contact a{border-bottom:1.5px solid transparent;text-decoration:none}
 .nav .tel{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
 .nav .tel span{font-weight:400;color:var(--ink-2)}
+/* a text message link beside her cell, so people know texting is welcome */
+.nav__row{display:flex;gap:.7rem;align-items:baseline}
+.nav .sms{text-decoration:underline;text-underline-offset:3px}
 .nav__contact a:hover{color:var(--rose);border-color:var(--rose)}
 
 /* hero ----------------------------------------------------------- */
@@ -166,7 +170,7 @@ img,svg{max-width:100%}
   display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.85fr);
   gap:clamp(2rem,calc(var(--vw) * .05000),4.5rem);align-items:center;
 }
-.hero h1{font-size:clamp(2.75rem,calc(var(--vw) * .06200),var(--s8));margin:1.4rem 0 0}
+.hero h1{font-size:clamp(2.75rem,calc(var(--vw) * .0654),var(--s8));margin:1.4rem 0 0}
 .hero__lede{
   font-size:clamp(1.0625rem,calc(var(--vw) * .01600),var(--s4));color:var(--paper-2);
   max-width:31rem;margin-top:1.5rem;
@@ -199,20 +203,20 @@ img,svg{max-width:100%}
 .sec{padding:clamp(4rem,calc(var(--vw) * .08500),7rem) 0}
 .sec__head{max-width:44rem}
 .sec__head--solo h2{margin-top:0}
-.sec__head h2{font-size:clamp(1.9rem,calc(var(--vw) * .03900),var(--s7));margin-top:1.1rem}
+.sec__head h2{font-size:clamp(var(--s5),calc(var(--vw) * .03654),var(--s6));margin-top:1.1rem}
 .sec__head p{margin-top:1.1rem;color:var(--ink-2);max-width:var(--measure)}
 .band-dark .sec__head p{color:var(--paper-2)}
 
 /* story ---------------------------------------------------------- */
 .story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(2rem,calc(var(--vw) * .05000),4.5rem)}
-.story__body{display:flex;flex-direction:column;gap:1.35rem;max-width:var(--measure);font-size:var(--s4);line-height:1.62}
+.story__body{display:flex;flex-direction:column;gap:1.35rem;max-width:var(--measure);font-size:var(--s4);line-height:1.65}
 .story__body p:first-child::first-letter{
   float:left;font-family:var(--f-display);font-size:3.9em;line-height:.82;
   padding:.06em .12em 0 0;color:var(--rose);font-variation-settings:"SOFT" 40,"WONK" 1;
 }
 .pullquote{
   margin-top:2.4rem;padding-left:1.5rem;border-left:2px solid var(--rose);
-  font-family:var(--f-display);font-size:clamp(1.35rem,calc(var(--vw) * .02400),var(--s5));
+  font-family:var(--f-display);font-size:clamp(1.5rem,calc(var(--vw) * .02692),var(--s5));
   line-height:1.28;font-variation-settings:"SOFT" 40,"WONK" 1;
 }
 .pullquote cite{
@@ -229,13 +233,14 @@ img,svg{max-width:100%}
 .hill__in{max-width:52rem}
 .hill blockquote{
   margin:1.4rem 0 0;font-family:var(--f-display);
-  font-size:clamp(1.85rem,calc(var(--vw) * .04200),3.4rem);line-height:1.12;letter-spacing:-.015em;
+  font-size:clamp(var(--s5),calc(var(--vw) * .03654),var(--s6));line-height:1.08;letter-spacing:-.015em;
   font-variation-settings:"SOFT" 40,"WONK" 1;text-wrap:balance;
 }
 .hill p{
   margin-top:1.9rem;color:var(--paper);max-width:40rem;
-  font-size:clamp(var(--s3),calc(var(--vw) * .01550),var(--s4));line-height:1.62;
+  font-size:clamp(var(--s3),calc(var(--vw) * .01550),var(--s4));line-height:1.65;
 }
+.hill .eyebrow{font-size:var(--s1);line-height:1.65}
 
 /* the invisible work + the sequence ------------------------------- */
 .unseen__grid{
@@ -244,13 +249,13 @@ img,svg{max-width:100%}
 }
 .unseen__item h3{
   font-family:var(--f-body);font-size:var(--s2);font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0;
 }
 .unseen__item p{margin:.65rem 0 0;color:var(--paper-2);max-width:26rem}
 .unseen__note{
   margin:3rem 0 0;padding:1.8rem 0 0;border-top:1px solid var(--gold-dim);
   font-family:var(--f-display);font-weight:300;
-  font-size:clamp(var(--s4),calc(var(--vw) * .02100),var(--s5));line-height:1.35;
+  font-size:var(--s4);line-height:1.45;
   font-variation-settings:"SOFT" 40,"WONK" 1;
   color:var(--paper);max-width:44rem;text-wrap:pretty;
 }
@@ -268,18 +273,13 @@ img,svg{max-width:100%}
 /* reviews -------------------------------------------------------- */
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:3rem}
 .review{
-  background:var(--shell);border:1px solid #0B1C401a;border-radius:2px;
+  background:var(--shell);border:1px solid #0B1C401f;border-radius:2px;
   padding:1.75rem 1.6rem;display:flex;flex-direction:column;gap:1.1rem;
   transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
 }
-.review:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px #0B1C4059;border-color:#0B1C4038}
-.review__tag{
-  align-self:flex-start;font-size:.6875rem;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--rose);
-  border:1px solid #A93A5747;border-radius:999px;padding:.28rem .7rem;
-}
-.review blockquote{margin:0;font-size:var(--s3);line-height:1.6}
-.review footer{margin-top:auto;padding-top:.4rem;border-top:1px solid #0B1C4014}
+.review:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px #0B1C4059;border-color:#0B1C4055}
+.review blockquote{margin:0;font-size:var(--s3);line-height:1.65}
+.review footer{margin-top:auto;padding-top:.4rem;border-top:1px solid #0B1C401f}
 .review footer b{display:block;font-weight:600;font-size:var(--s2);padding-top:.9rem}
 .review footer span{font-size:var(--s1);color:var(--ink-2);letter-spacing:.03em}
 .reviews__more{display:flex;justify-content:center;margin-top:2.5rem}
@@ -292,7 +292,7 @@ img,svg{max-width:100%}
   transition:border-color .2s ease,background .2s ease,transform .2s ease;
 }
 .forkcard:hover{border-color:var(--gold);background:#12274f;transform:translateY(-3px)}
-.forkcard h3{font-size:clamp(1.6rem,calc(var(--vw) * .03000),2.1rem)}
+.forkcard h3{font-size:clamp(1.5rem,calc(var(--vw) * .02692),var(--s5))}
 .forkcard p{color:var(--paper-2);max-width:26rem}
 .forkcard__go{
   margin-top:auto;padding-top:.5rem;display:inline-flex;align-items:center;gap:.55rem;
@@ -313,29 +313,25 @@ img,svg{max-width:100%}
 .closing__art{align-self:end;justify-self:end;width:80%;margin:0;line-height:0}
 .closing__art img{display:block;width:100%;height:auto}
 .closing__cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.25rem}
-.closing__direct{
-  margin-top:2.4rem;display:flex;flex-direction:column;gap:.45rem;
-  font-size:var(--s2);color:var(--ink-2);
-}
-.closing__direct a{font-weight:600;color:var(--ink);text-decoration-color:#0B1C4045;text-underline-offset:3px}
-.closing__direct a:hover{color:var(--rose)}
 
 /* contact form, on the blush ground */
 .ask__form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem;margin-top:2.25rem;max-width:34rem}
 .field{display:flex;flex-direction:column;gap:.4rem;min-width:0}
 .field--wide{grid-column:1 / -1}
-.field label{font-size:var(--s1);font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--rose)}
+.field label{font-size:var(--s1);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
 .field label span{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--ink-2)}
 .field input,.field textarea{
   font-family:var(--f-body);font-size:var(--s3);color:var(--ink);
-  background:var(--shell);border:1.5px solid #0B1C4038;border-radius:2px;
+  background:var(--shell);border:1.5px solid #0B1C4055;border-radius:2px;
   padding:.75rem .85rem;width:100%;
 }
-.field textarea{resize:vertical;line-height:1.55}
+.field textarea{resize:vertical;line-height:1.65}
 .field textarea::placeholder{color:var(--ink-2);opacity:.75}
 .field input:hover,.field textarea:hover{border-color:var(--ink-2)}
 .ask__form .btn{grid-column:1 / -1;justify-self:start}
 .hp{position:absolute;left:-9999px}
+/* .ask__form sets display:grid, which beats the browser's own rule for [hidden] */
+[hidden]{display:none!important}
 .ask__done{margin-top:2.25rem}
 .ask__done h3{font-size:var(--s5)}
 .ask__done p{margin-top:.8rem;max-width:34rem;color:var(--ink-2)}
@@ -345,7 +341,7 @@ img,svg{max-width:100%}
 .foot{background:var(--navy);color:var(--paper-2);padding:clamp(3rem,calc(var(--vw) * .06000),4.5rem) 0 2.5rem;font-size:var(--s2)}
 .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
 .foot h4{
-  font-family:var(--f-body);font-size:.6875rem;font-weight:700;letter-spacing:.19em;
+  font-family:var(--f-body);font-size:var(--s1);font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gold);margin:0 0 1rem;
 }
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
@@ -364,12 +360,7 @@ img,svg{max-width:100%}
   margin-top:1.5rem;font-size:.75rem;line-height:1.65;color:#8d8296;max-width:64rem;
 }
 
-/* reveal --------------------------------------------------------- */
-.js .rise{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-.js .rise{transition:opacity .7s ease,transform .7s ease}
-.js .rise.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  .js .rise{opacity:1;transform:none;transition:none}
   *{animation-duration:.001ms!important;transition-duration:.001ms!important}
   .btn:hover,.review:hover,.forkcard:hover{transform:none}
 }
@@ -438,7 +429,7 @@ img,svg{max-width:100%}
       <a href="/for-sellers/">For Sellers</a>
       <a href="#reviews">Reviews</a>
       <span class="nav__contact">
-        <a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a>
+        <span class="nav__row"><a class="tel sms" href="sms:+17173324407">Text</a><a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a></span>
         <a class="tel" href="tel:17177358400"><span>Office</span> 717.735.8400</a>
       </span>
     </nav>
@@ -455,7 +446,7 @@ img,svg{max-width:100%}
         <div>
           <p class="eyebrow">Realtor, Lancaster County PA</p>
           <h1>Hire a realtor, close with a friend.</h1>
-          <p class="hero__lede">Fifteen years helping people through the biggest decision they will ever make. I will tell you the truth about the market, I will pick up the phone on a Sunday, and I will still be around long after you get the keys.</p>
+          <p class="hero__lede">I will tell you the truth about the market, I will pick up the phone on a Sunday, and I will still be around long after you get the keys.</p>
           <div class="hero__cta">
             <a class="btn btn--solid" href="#contact">Let's talk</a>
             <a class="btn btn--ghost" href="#reviews">Read the reviews</a>
@@ -470,14 +461,14 @@ img,svg{max-width:100%}
       <dl class="facts">
         <div class="fact"><dt>15</dt><dd>Years in real estate</dd></div>
         <div class="fact"><dt>2</dt><dd>Counties served, Lancaster and York</dd></div>
-        <div class="fact"><dt>&#9733;</dt><dd>Repeat recipient of CB's sales excellence awards</dd></div>
+        <div class="fact"><dt>&#9733;</dt><dd>Repeat recipient of Coldwell Banker's sales excellence awards</dd></div>
       </dl>
     </div>
   </section>
 
   <!-- STORY -->
   <section class="sec" id="about">
-    <div class="shell story rise">
+    <div class="shell story">
       <div class="sec__head">
         <p class="eyebrow">Who you are hiring</p>
         <h2>I did not plan on being a realtor.</h2>
@@ -500,7 +491,7 @@ img,svg{max-width:100%}
   <!-- THE HILL -->
   <section class="band-dark sec hill">
     <svg class="hill__bloom" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#peony-single"/></svg>
-    <div class="shell"><div class="hill__in rise">
+    <div class="shell"><div class="hill__in">
       <p class="eyebrow">Where I will not bend</p>
       <blockquote>I will live and die on the hill that transparency is key.</blockquote>
       <p>I'll be straight with you about the reality of the current market: the good, the bad, and the ugly. If you want a move-in-ready house well under value with nobody else bidding on it, I am going to say that out loud instead of letting you find out the slow way. You still make your own call. You just never make it without the real picture.</p>
@@ -509,39 +500,33 @@ img,svg{max-width:100%}
 
   <!-- REVIEWS -->
   <section class="sec" id="reviews">
-    <div class="shell rise">
+    <div class="shell">
       <div class="sec__head sec__head--solo">
         <h2>Their words, not mine.</h2>
       </div>
 
       <div class="reviews">
         <article class="review">
-          <span class="review__tag">Transparency</span>
           <blockquote>"She always kept me in the loop and was extremely transparent... she made everything about it so easy!"</blockquote>
           <footer><b>Brittany Bupp</b><span>Buyer and seller, three transactions</span></footer>
         </article>
         <article class="review">
-          <span class="review__tag">Straight talk</span>
           <blockquote>"SHE DID NOT DISAPPOINT. We are now in our very first home!! She is timely, patient, professional but fun, knowledgeable and a straight shooter."</blockquote>
           <footer><b>Faith Swenson</b><span>First-time buyer</span></footer>
         </article>
         <article class="review">
-          <span class="review__tag">Availability</span>
           <blockquote>"We always knew she'd be willing to drop anything at the last minute to take us on a showing, even on holidays... We were able to secure our dream home with Angela's help!"</blockquote>
           <footer><b>Nick Goodling</b><span>Buyer and seller, three transactions</span></footer>
         </article>
         <article class="review">
-          <span class="review__tag">Flexibility</span>
           <blockquote>"She fit us in on weekends and evenings... it really felt like she was truly looking out for us."</blockquote>
           <footer><b>Gabi Crumbling</b><span>Buyer, two homes</span></footer>
         </article>
         <article class="review">
-          <span class="review__tag">No judgment</span>
           <blockquote>"She made me feel comfortable enough to ask any question that may pop up. She was reliable and very personable!"</blockquote>
           <footer><b>Caitlyn Pumphrey</b><span>First-time buyer</span></footer>
         </article>
         <article class="review">
-          <span class="review__tag">Patience</span>
           <blockquote>"Extremely responsive, helpful, patient and full of wisdom."</blockquote>
           <footer><b>Trevor Behler</b><span>Buyer</span></footer>
         </article>
@@ -556,7 +541,7 @@ img,svg{max-width:100%}
   <!-- THE INVISIBLE WORK -->
   <section class="band-dark sec unseen scrim">
     <div class="paper" aria-hidden="true"></div>
-    <div class="shell rise">
+    <div class="shell">
       <div class="sec__head">
         <p class="eyebrow">Behind the scenes</p>
         <h2>The part you never see.</h2>
@@ -590,7 +575,7 @@ img,svg{max-width:100%}
 
   <!-- THE SEQUENCE -->
   <section class="sec sequence">
-    <div class="shell rise">
+    <div class="shell">
       <div class="sec__head">
         <p class="eyebrow">What happens next</p>
         <h2>Calling me does not start anything you cannot stop.</h2>
@@ -617,21 +602,21 @@ img,svg{max-width:100%}
   <!-- FORK -->
   <section class="band-dark sec">
     <div class="paper paper--faint" aria-hidden="true"></div>
-    <div class="shell rise">
+    <div class="shell">
       <div class="sec__head">
         <p class="eyebrow">Whichever side you are on</p>
         <h2>Buying and selling each have their own stress.</h2>
-        <p>They keep you up at night for different reasons, so they do not get the same page here. What does not change is my half of it: carry the heavy parts, and tell you the truth the whole way through. Pick the one you are actually in.</p>
+        <p>They keep you up at night for different reasons. What does not change is my half of it: carry the heavy parts, and tell you the truth the whole way through. Pick the one you are actually in.</p>
       </div>
       <div class="fork">
         <a class="forkcard" id="buyers" href="/for-buyers/">
           <h3>I am buying</h3>
-          <p>You are about to spend more money than you ever have, and the thing you are really afraid of is trusting the wrong person with it. Here is how I work, and what I do that you will never see.</p>
+          <p>Most people start by looking at houses. I'd rather start with five questions, because nearly every hard decision later traces back to one of them.</p>
           <span class="forkcard__go">For buyers <span aria-hidden="true">&rarr;</span></span>
         </a>
         <a class="forkcard" id="sellers" href="/for-sellers/">
           <h3>I am selling</h3>
-          <p>You want a real number, not a flattering one, and you want to know what I will actually do to earn it. Here is what happened for the last people who asked.</p>
+          <p>Most people start by asking what it's worth. I'd rather start with five questions, because the right number depends on nearly every one of them.</p>
           <span class="forkcard__go">For sellers <span aria-hidden="true">&rarr;</span></span>
         </a>
       </div>
@@ -640,11 +625,11 @@ img,svg{max-width:100%}
 
   <!-- CLOSING -->
   <section class="sec closing" id="contact">
-    <div class="shell closing__grid rise">
+    <div class="shell closing__grid">
       <div class="closing__copy">
         <div class="sec__head">
           <p class="eyebrow">Start here</p>
-          <h2>Come say hi.</h2>
+          <h2>Let's talk.</h2>
           <p>Tell me where you are in this. If you are six months out, that is fine. That is honestly the best time to call, because we have room to do it right. Either way I will tell you what I really think.</p>
         </div>
         <form class="ask__form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm">
@@ -656,8 +641,8 @@ img,svg{max-width:100%}
             <input id="f-name" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required>
+            <label for="f-email">Email <span>optional</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email">
           </div>
           <div class="field field--wide">
             <label for="f-phone">Phone</label>
@@ -673,12 +658,7 @@ img,svg{max-width:100%}
 
         <div class="ask__done" id="askDone" hidden>
           <h3>Got it.</h3>
-          <p id="doneMsg">Thank you. I will get back to you myself, usually the same day. If it is urgent, call or text me at <a href="tel:17173324407">717.332.4407</a>.</p>
-        </div>
-        <div class="closing__direct">
-          <span>Cell <a href="tel:17173324407">717.332.4407</a></span>
-          <span>Office <a href="tel:17177358400">717.735.8400</a></span>
-          <span>Email <a href="mailto:angela.rera@cbhomes.com">angela.rera@cbhomes.com</a></span>
+          <p id="doneMsg">Thank you. I will get back to you myself. If it is urgent, call or text me at <a href="tel:17173324407">717.332.4407</a>.</p>
         </div>
       </div>
       <figure class="closing__art">
@@ -734,33 +714,28 @@ img,svg{max-width:100%}
 <script>
 document.documentElement.classList.add("js");
 (function () {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.querySelectorAll(".rise").forEach(function (el) { el.classList.add("in"); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-    });
-  }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
-  document.querySelectorAll(".rise").forEach(function (el) { io.observe(el); });
-})();
-(function () {
   var form = document.getElementById('contactForm');
   var done = document.getElementById('askDone');
   var doneMsg = document.getElementById('doneMsg');
   if (!form) return;
+  var btn = form.querySelector('button[type=submit]');
+  var okTitle = done.querySelector('h3').textContent, okMsg = doneMsg.innerHTML;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (btn.disabled) return;          // a second quick tap does not send it twice
     if (!form.reportValidity()) return;
+    btn.disabled = true;
     function reveal(failed) {
+      btn.disabled = false;
+      done.querySelector('h3').textContent = okTitle;
+      doneMsg.innerHTML = okMsg;
       if (failed) {
-        doneMsg.innerHTML = 'Sorry, that did not go through. Please call or text me at ' +
+        doneMsg.innerHTML = 'Please call or text me at ' +
           '<a href="tel:17173324407">717.332.4407</a>, or email ' +
           '<a href="mailto:angela.rera@cbhomes.com">angela.rera@cbhomes.com</a>.';
-        done.querySelector('h3').textContent = 'Hmm.';
+        done.querySelector('h3').textContent = 'That did not go through.';
       }
-      form.hidden = true;
+      if (!failed) form.hidden = true;  // keep what they typed so they can try again
       done.hidden = false;
       done.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }

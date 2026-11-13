@@ -9,7 +9,7 @@
 <meta property="og:description" content="The questions Angela asks on a first call. Three minutes, no signup.">
 <meta property="og:image" content="https://www.angelarerarealestate.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<title>Five Questions Before You Look</title>
+<title>For Buyers | Angela Rera Real Estate</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,6 +105,7 @@ img,svg{max-width:100%}
 
 /* buttons -------------------------------------------------------- */
 .btn{
+  line-height:normal;
   display:inline-flex;align-items:center;gap:.6rem;
   font-family:var(--f-body);font-size:var(--s2);font-weight:600;
   letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
@@ -146,6 +147,9 @@ img,svg{max-width:100%}
 .nav__contact a{border-bottom:1.5px solid transparent;text-decoration:none}
 .nav .tel{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
 .nav .tel span{font-weight:400;color:var(--ink-2)}
+/* a text message link beside her cell, so people know texting is welcome */
+.nav__row{display:flex;gap:.7rem;align-items:baseline}
+.nav .sms{text-decoration:underline;text-underline-offset:3px}
 .nav__contact a:hover{color:var(--rose);border-color:var(--rose)}
 
 
@@ -158,7 +162,7 @@ img,svg{max-width:100%}
 .foot{background:var(--navy);color:var(--paper-2);padding:clamp(3rem,calc(var(--vw) * .06000),4.5rem) 0 2.5rem;font-size:var(--s2)}
 .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
 .foot h4{
-  font-family:var(--f-body);font-size:.6875rem;font-weight:700;letter-spacing:.19em;
+  font-family:var(--f-body);font-size:var(--s1);font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gold);margin:0 0 1rem;
 }
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
@@ -241,8 +245,8 @@ img,svg{max-width:100%}
 /* sized so the headline holds one line from ~700px up, with slack to spare.
    .048 put it within 2px of the shell edge at 768 and would wrap on any font
    that rendered a hair wider. */
-.intro h1{font-size:clamp(2rem,calc(var(--vw) * .0455),3.5rem);margin:1.3rem 0 0}
-.intro__lede{margin-top:1.6rem;max-width:none;font-size:clamp(var(--s3),calc(var(--vw) * .0155),var(--s4));line-height:1.62}
+.intro h1{font-size:clamp(2rem,calc(var(--vw) * .05),var(--s7));margin:1.3rem 0 0}
+.intro__lede{margin-top:1.6rem;max-width:none;font-size:clamp(var(--s3),calc(var(--vw) * .0155),var(--s4));line-height:1.65}
 .intro__body{margin-top:1rem}
 .intro__body p + p{margin-top:1rem}
 .intro__body p{color:var(--paper-2)}
@@ -265,7 +269,7 @@ img,svg{max-width:100%}
   shape-margin:1rem;
 }
 .intro__shot img{
-  display:block;width:100%;height:auto;border-radius:3px;
+  display:block;width:100%;height:auto;border-radius:2px;
   border:1px solid var(--gold-dim);box-shadow:0 14px 34px rgba(0,0,0,.42);
 }
 
@@ -277,8 +281,9 @@ img,svg{max-width:100%}
 .quiz__bar span{display:block;height:100%;width:20%;background:var(--rose);transition:width .35s ease}
 
 .q{border:0;margin:0;padding:0;min-width:0}
+.q + .q{margin-top:3.2rem}
 .q__ask{font-family:var(--f-display);font-variation-settings:"SOFT" 40,"WONK" 1;
-  font-size:clamp(1.6rem,calc(var(--vw) * .034),2.5rem);line-height:1.14;
+  font-size:clamp(1.5rem,calc(var(--vw) * .03654),var(--s6));line-height:1.08;
   letter-spacing:-.012em;padding:0;text-wrap:balance}
 .q__why{margin-top:1rem;color:var(--ink-2);font-size:var(--s2);max-width:34rem}
 
@@ -287,7 +292,7 @@ img,svg{max-width:100%}
 .opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
 .opt span{
   display:block;padding:1rem 1.2rem;background:var(--shell);
-  border:1.5px solid #0B1C401f;border-radius:3px;
+  border:1.5px solid #0B1C401f;border-radius:2px;
   transition:border-color .15s ease,background .15s ease,transform .15s ease;
 }
 .opt:hover span{border-color:#0B1C4055;transform:translateX(2px)}
@@ -298,7 +303,7 @@ img,svg{max-width:100%}
 .opt__say{
   margin:.9rem 0 .4rem 1.2rem;padding-left:1.2rem;border-left:2px solid var(--gold);
   font-family:var(--f-display);font-variation-settings:"SOFT" 40,"WONK" 1;font-weight:300;
-  font-size:clamp(var(--s3),calc(var(--vw) * .0178),var(--s4));line-height:1.45;
+  font-size:clamp(var(--s3),calc(var(--vw) * .01923),var(--s4));line-height:1.45;
   color:var(--ink);max-width:33rem;text-wrap:pretty;
 }
 @media (prefers-reduced-motion:no-preference){
@@ -311,7 +316,7 @@ img,svg{max-width:100%}
 
 /* result --------------------------------------------------------- */
 .result{padding:clamp(4rem,calc(var(--vw) * .085),7rem) 0}
-.result h2{font-size:clamp(1.9rem,calc(var(--vw) * .042),3rem);margin-top:1.2rem}
+.result h2{font-size:clamp(var(--s5),calc(var(--vw) * .03654),var(--s6));margin-top:1.2rem}
 .result__note{margin-top:1.5rem;max-width:38rem;color:var(--paper-2)}
 
 .summary{margin:3rem 0 0;padding:0;display:grid;gap:0}
@@ -320,31 +325,37 @@ img,svg{max-width:100%}
 .summary dt{font-size:var(--s2);color:var(--paper-2);margin:0}
 .summary dd{
   margin:.45rem 0 0;font-family:var(--f-display);font-variation-settings:"SOFT" 40,"WONK" 1;
-  font-size:clamp(var(--s4),calc(var(--vw) * .021),var(--s5));line-height:1.25;color:var(--paper);
+  font-size:var(--s4);line-height:1.28;color:var(--paper);
 }
-#again{margin-top:2.2rem}
+.summary dd.summary__say{margin:.7rem 0 0;padding-left:1rem;border-left:2px solid var(--gold);font-family:var(--f-display);font-variation-settings:"SOFT" 40,"WONK" 1;font-weight:300;font-size:var(--s3);line-height:1.45;color:var(--paper-2)}
+#again{margin-top:2.2rem;background:none!important;border:0!important;padding:0;min-height:0;text-decoration:underline;text-underline-offset:4px}
 
-.ask{margin-top:clamp(3rem,calc(var(--vw) * .06),4.5rem);padding-top:2.6rem;border-top:1px solid var(--gold-dim)}
+.talk{padding:clamp(4rem,calc(var(--vw) * .085),7rem) 0}
+/* straight after the answers, the two navy bands read as one, split by a line */
+#result:not([hidden]){padding-bottom:0}
+#result:not([hidden]) + .talk .ask{padding-top:2.6rem;border-top:1px solid var(--gold-dim)}
+#result:not([hidden]) + .talk{padding-top:clamp(3rem,calc(var(--vw) * .06),4.5rem)}
 .ask h3{font-family:var(--f-display);font-variation-settings:"SOFT" 40,"WONK" 1;
-  font-size:clamp(1.5rem,calc(var(--vw) * .03),2.1rem);color:var(--paper);margin:0}
+  font-size:clamp(1.5rem,calc(var(--vw) * .02692),var(--s5));color:var(--paper);margin:0}
 .ask > p{margin-top:1rem;max-width:34rem;color:var(--paper-2)}
 
 .ask__form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem;margin-top:2rem;max-width:38rem}
 .field{display:flex;flex-direction:column;gap:.4rem;min-width:0}
 .field--wide{grid-column:1 / -1}
-.field label{font-size:var(--s1);font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold)}
+.field label{font-size:var(--s1);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .field label span{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--paper-2)}
 .field input,.field textarea{
   font-family:var(--f-body);font-size:var(--s3);color:var(--paper);
   background:#ffffff14;border:1.5px solid var(--gold-dim);border-radius:2px;
   padding:.75rem .85rem;width:100%;
 }
-.field textarea{resize:vertical;line-height:1.55}
+.field textarea{resize:vertical;line-height:1.65}
 .field input:hover,.field textarea:hover{border-color:var(--gold)}
 .ask__fine{grid-column:1 / -1;font-size:var(--s2);color:var(--paper-2);margin:0;max-width:32rem}
 .ask__form .btn{grid-column:1 / -1;justify-self:start}
 .hp{position:absolute;left:-9999px}
 
+.ask__done{margin-top:2.25rem}
 .ask__done p{margin-top:1rem;max-width:34rem;color:var(--paper-2)}
 .ask__done a{color:var(--paper)}
 
@@ -363,7 +374,7 @@ img,svg{max-width:100%}
     <a class="wordmark" href="/">Angela Rera<span class="wordmark__broker">Coldwell Banker Realty</span></a>
     <nav class="nav">
       <span class="nav__contact">
-        <a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a>
+        <span class="nav__row"><a class="tel sms" href="sms:+17173324407">Text</a><a class="tel" href="tel:17173324407"><span>Cell</span> 717.332.4407</a></span>
         <a class="tel" href="tel:17177358400"><span>Office</span> 717.735.8400</a>
       </span>
     </nav>
@@ -393,12 +404,7 @@ img,svg{max-width:100%}
   <section class="sec quiz" id="quiz">
     <div class="shell quiz__in">
 
-      <div class="quiz__head">
-        <p class="quiz__count">Question <b id="qnum">1</b> of 5</p>
-        <div class="quiz__bar"><span id="qprog"></span></div>
-      </div>
-
-      <form id="qform" novalidate>
+      <form id="qform" novalidate autocomplete="off">
 
         <fieldset class="q" data-q="1">
           <legend class="q__ask">How long do you actually plan to live there?</legend>
@@ -411,7 +417,7 @@ img,svg{max-width:100%}
           </div>
         </fieldset>
 
-        <fieldset class="q" data-q="2" hidden>
+        <fieldset class="q" data-q="2">
           <legend class="q__ask">Who gets the final say?</legend>
           <p class="q__why">Why I ask: I have watched this stall more searches than money ever has.</p>
           <div class="q__opts">
@@ -422,7 +428,7 @@ img,svg{max-width:100%}
           </div>
         </fieldset>
 
-        <fieldset class="q" data-q="3" hidden>
+        <fieldset class="q" data-q="3">
           <legend class="q__ask">How much of the work are you honestly willing to take on?</legend>
           <p class="q__why">Why I ask: not what you would like to be true about yourself. What you will actually do on a Saturday in November.</p>
           <div class="q__opts">
@@ -433,7 +439,7 @@ img,svg{max-width:100%}
           </div>
         </fieldset>
 
-        <fieldset class="q" data-q="4" hidden>
+        <fieldset class="q" data-q="4">
           <legend class="q__ask">What is left over after closing?</legend>
           <p class="q__why">Why I ask: this is the number nobody plans for. Down payment, closing costs, and then you are standing in an empty house.</p>
           <div class="q__opts">
@@ -444,7 +450,7 @@ img,svg{max-width:100%}
           </div>
         </fieldset>
 
-        <fieldset class="q" data-q="5" hidden>
+        <fieldset class="q" data-q="5">
           <legend class="q__ask">If you had to let one of these go, which would it be?</legend>
           <p class="q__why">Why I ask: everybody's list is longer than their budget. Knowing what you would trade away is worth more than knowing what you want.</p>
           <div class="q__opts">
@@ -459,8 +465,7 @@ img,svg{max-width:100%}
       </form>
 
       <div class="quiz__nav">
-        <button type="button" class="btn btn--ghost" id="back" hidden>Back</button>
-        <button type="button" class="btn btn--solid" id="next" disabled>Next</button>
+        <button type="button" class="btn btn--solid" id="next" disabled>See what you said</button>
       </div>
     </div>
   </section>
@@ -477,6 +482,13 @@ img,svg{max-width:100%}
 
       <button type="button" class="btn btn--ghost" id="again">Start over</button>
 
+    </div>
+  </section>
+
+  <!-- TALK: open to everyone, whether or not they answered the questions -->
+  <section class="band-dark scrim talk" id="talk">
+    <div class="paper" aria-hidden="true"></div>
+    <div class="shell">
       <div class="ask">
         <h3>Want to talk it through?</h3>
         <p>No pressure and no obligation. If you are six months out, that is honestly the best time to call, because we have room to do it properly.</p>
@@ -503,13 +515,13 @@ img,svg{max-width:100%}
             <textarea id="f-msg" name="message" rows="3"></textarea>
           </div>
 
-          <p class="ask__fine">Your five answers come along with this so I have the context. That is the only thing that gets sent.</p>
+          <p class="ask__fine">If you answered the questions above, your answers come along with this so I have the context. That is the only thing that gets sent.</p>
           <button class="btn btn--solid" type="submit">Send it to Angela</button>
         </form>
 
         <div class="ask__done" id="askDone" hidden>
           <h3>Got it.</h3>
-          <p id="doneMsg">Thank you. I will get back to you myself, usually the same day. If it is urgent, call or text me at <a href="tel:17173324407">717.332.4407</a>.</p>
+          <p id="doneMsg">Thank you. I will get back to you myself. If it is urgent, call or text me at <a href="tel:17173324407">717.332.4407</a>.</p>
         </div>
       </div>
     </div>
@@ -530,7 +542,7 @@ img,svg{max-width:100%}
           <li><a href="/">Home</a></li>
           <li><a href="/for-sellers/">For Sellers</a></li>
           <li><a href="/#reviews">Reviews</a></li>
-          <li><a href="/#contact">Contact Angela</a></li>
+          <li><a href="/#contact">Let's talk</a></li>
         </ul>
       </div>
       <div>
@@ -563,53 +575,36 @@ document.documentElement.classList.add('js');
 
 (function () {
   var qs = [].slice.call(document.querySelectorAll('.q'));
-  var i = 0;
+  var qform = document.getElementById('qform');
   var nextBtn = document.getElementById('next');
-  var backBtn = document.getElementById('back');
-  var prog = document.getElementById('qprog');
-  var num = document.getElementById('qnum');
   var quiz = document.getElementById('quiz');
   var result = document.getElementById('result');
 
-  function current() { return qs[i]; }
   function answered(f) { return f.querySelector('input:checked'); }
+  function allAnswered() { return qs.every(answered); }
 
-  function show() {
-    qs.forEach(function (f, n) { f.hidden = n !== i; });
-    num.textContent = i + 1;
-    prog.style.width = ((i + 1) / qs.length * 100) + '%';
-    backBtn.hidden = i === 0;
-    nextBtn.disabled = !answered(current());
-    nextBtn.textContent = i === qs.length - 1 ? 'See what you said' : 'Next';
+  // show Angela's line under each chosen answer, and only there
+  function sync() {
+    qs.forEach(function (f) {
+      f.querySelectorAll('.opt__say').forEach(function (el) { el.hidden = true; el.textContent = ''; });
+      var c = answered(f);
+      if (c) {
+        var say = c.closest('.optwrap').querySelector('.opt__say');
+        say.textContent = c.dataset.say;
+        say.hidden = false;
+      }
+    });
+    nextBtn.disabled = !allAnswered();
   }
 
-  // reveal Angela's line for the chosen answer
-  document.getElementById('qform').addEventListener('change', function (e) {
-    var input = e.target;
-    if (!input.matches('input[type=radio]')) return;
-    var f = input.closest('.q');
-    // only the chosen option keeps its response
-    f.querySelectorAll('.opt__say').forEach(function (el) { el.hidden = true; el.textContent = ''; });
-    var say = input.closest('.optwrap').querySelector('.opt__say');
-    say.textContent = input.dataset.say;
-    say.hidden = false;
-    nextBtn.disabled = false;
+  qform.addEventListener('change', function (e) {
+    if (e.target.matches('input[type=radio]')) sync();
   });
+  // coming back with the browser's Back button can bring old answers with it
+  window.addEventListener('pageshow', sync);
 
   nextBtn.addEventListener('click', function () {
-    if (!answered(current())) return;
-    if (i < qs.length - 1) {
-      i++; show();
-      quiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      var first = current().querySelector('input');
-      if (first) first.focus({ preventScroll: true });
-    } else {
-      finish();
-    }
-  });
-
-  backBtn.addEventListener('click', function () {
-    if (i > 0) { i--; show(); quiz.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (allAnswered()) finish();
   });
 
   function collect() {
@@ -617,36 +612,42 @@ document.documentElement.classList.add('js');
       var chosen = answered(f);
       return {
         q: f.querySelector('.q__ask').textContent.trim(),
-        a: chosen ? chosen.value : ''
+        a: chosen ? chosen.value : '',
+        say: chosen ? chosen.dataset.say : ''
       };
     });
   }
+  function answersText() {
+    return collect().filter(function (r) { return r.a; })
+      .map(function (r) { return r.q + '\n' + r.a; }).join('\n\n');
+  }
 
   function finish() {
-    var rows = collect();
     var dl = document.getElementById('summary');
     dl.innerHTML = '';
-    rows.forEach(function (r) {
+    collect().forEach(function (r) {
       var wrap = document.createElement('div');
       var dt = document.createElement('dt');
       var dd = document.createElement('dd');
       dt.textContent = r.q;
       dd.textContent = r.a;
       wrap.appendChild(dt); wrap.appendChild(dd);
+      if (r.say) {
+        var s = document.createElement('dd');
+        s.className = 'summary__say';
+        s.textContent = r.say;
+        wrap.appendChild(s);
+      }
       dl.appendChild(wrap);
     });
-    document.getElementById('answersField').value =
-      rows.map(function (r) { return r.q + '\n' + r.a; }).join('\n\n');
-
     quiz.hidden = true;
     result.hidden = false;
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   document.getElementById('again').addEventListener('click', function () {
-    document.getElementById('qform').reset();
-    document.querySelectorAll('.opt__say').forEach(function (el) { el.hidden = true; el.textContent = ''; });
-    i = 0; show();
+    qform.reset();
+    sync();
     result.hidden = true;
     quiz.hidden = false;
     quiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -658,24 +659,32 @@ document.documentElement.classList.add('js');
   var form = document.getElementById('contact');
   var done = document.getElementById('askDone');
   var doneMsg = document.getElementById('doneMsg');
+  var btn = form.querySelector('button[type=submit]');
+  var okTitle = done.querySelector('h3').textContent, okMsg = doneMsg.innerHTML;
   var live = location.protocol === 'http:' || location.protocol === 'https:';
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (btn.disabled) return;          // a second quick tap does not send it twice
     if (!form.reportValidity()) return;
+    document.getElementById('answersField').value = answersText();
     var data = new URLSearchParams(new FormData(form)).toString();
+    btn.disabled = true;
 
     function reveal(previewOnly, failed) {
+      btn.disabled = false;
+      done.querySelector('h3').textContent = okTitle;
+      doneMsg.innerHTML = okMsg;
       if (failed) {
-        doneMsg.innerHTML = 'Sorry, that did not go through. Please call or text me at ' +
+        doneMsg.innerHTML = 'Please call or text me at ' +
           '<a href="tel:17173324407">717.332.4407</a>, or email ' +
           '<a href="mailto:angela.rera@cbhomes.com">angela.rera@cbhomes.com</a>.';
-        done.querySelector('h3').textContent = 'Hmm.';
+        done.querySelector('h3').textContent = 'That did not go through.';
       } else if (previewOnly) {
         doneMsg.innerHTML = 'This is a preview, so nothing was actually sent. On the published site this ' +
           'is delivered straight to Angela along with the five answers.';
       }
-      form.hidden = true;
+      if (!failed) form.hidden = true;  // keep what they typed so they can try again
       done.hidden = false;
       done.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -690,7 +699,7 @@ document.documentElement.classList.add('js');
       .catch(function () { reveal(false, true); });
   });
 
-  show();
+  sync();
 })();
 </script>
 </body>
